@@ -1,4 +1,6 @@
+import { MessageCircleMore } from "lucide-react";
 import { ICardStrategy, INavlinks, IOurServices, IProjects, ServicePlan } from "../types";
+import { getWhatsAppLink } from "../global-functions";
 
 export const navLinks: INavlinks[] = [
   { href: "#inicio", label: "Início" },
@@ -207,3 +209,11 @@ export const projects: IProjects[] = [
     link: "https://r2r-eventos.vercel.app/"
   },
 ]
+
+export const socialLinks = [
+  {
+    name: "WhatsApp",
+    href: getWhatsAppLink(),
+    icon: MessageCircleMore,
+  },
+];

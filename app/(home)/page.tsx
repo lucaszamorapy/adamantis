@@ -8,7 +8,7 @@ import Cta from "./cta/cta";
 const HomePage = () => {
   const isMobile = UseIsMobile();
   return (
-    <main className="flex flex-col lg:gap-64 gap-34 mt-10">
+    <main className="flex flex-col lg:gap-64 gap-34 py-10">
       <Start />
       <OurServices />
       <Projects isMobile={isMobile} />

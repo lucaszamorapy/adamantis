@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className=" dark">
         <Header />
         <main className="container">{children}</main>
+        <Footer />
       </body>
     </html>
   );
