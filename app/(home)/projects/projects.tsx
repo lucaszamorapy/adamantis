@@ -1,3 +1,4 @@
+import { getWhatsAppLink } from "@/app/config/global-functions";
 import { projects } from "@/app/config/lists";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,7 +11,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-const Projects = () => {
+const Projects = ({ isMobile }: { isMobile: boolean }) => {
   return (
     <section id="projetos" className="flex flex-col gap-5">
       <div className="flex flex-col gap-10">
@@ -21,25 +22,44 @@ const Projects = () => {
         <div className="flex lg:flex-row flex-col items-center gap-5">
           {projects.map((s, index) => {
             return (
-              <Card key={index} className="h-125 w-92.5 overflow-hidden">
-                <div className="relative h-125 w-92.5">
-                  <Image
-                    src={s.image}
-                    alt={s.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+              <Card
+                key={index}
+                className={`${!isMobile ? "h-125 w-92.5" : "h-112.5 w-67.5"} overflow-hidden`}
+              >
+                {!isMobile ? (
+                  <div className="relative h-125 w-92.5">
+                    <Image
+                      src={s.image}
+                      alt={s.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="relative h-112.5 w-67.5">
+                    <Image
+                      src={s.imageMobile}
+                      alt={s.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+
                 <CardHeader className="lg:h-60">
                   <CardTitle className="text-primary">{s.title}</CardTitle>
                   <CardDescription>{s.description}</CardDescription>
                 </CardHeader>
                 <CardFooter>
-                  <Button className="w-full" asChild>
-                    <Link target="_blank" href={s.link}>
-                      Visitar
-                    </Link>
-                  </Button>
+                  <Link
+                    href={getWhatsAppLink(
+                      `Olá, recentemente vi o projeto ${s.title} da vitrine da Adamantis e gostaria de saber mais inforamações sobre`,
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="w-full">Saiba mais</Button>
+                  </Link>
                 </CardFooter>
               </Card>
             );

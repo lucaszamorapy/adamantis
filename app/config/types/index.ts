@@ -30,6 +30,7 @@ export interface IOurServices {
 
 export interface IProjects {
   image: string;
+  imageMobile: string;
   title: string;
   description: string;
   link: string;

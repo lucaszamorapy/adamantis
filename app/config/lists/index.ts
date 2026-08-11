@@ -181,24 +181,28 @@ export const projects: IProjects[] = [
   {
     title: "Dra. Advogada | Template",
     image: "/projects/images/370x500.svg",
+    imageMobile: "/projects/images/mobile/270x450.svg",
     description: "Template desenvolvido como modelo de Landing Page para escritórios de advocacia, com foco em autoridade, credibilidade e conversão de potenciais clientes.",
     link: "https://advogado-template-lp.vercel.app/"
   },
   {
     title: "Lucas Zamora | Portfólio",
     image: "/projects/images/370x500.svg",
+    imageMobile: "/projects/images/mobile/270x450.svg",
     description: "Landing page desenvolvida para o foco de portfólio pessoal de desenvolvedor, com a temática do jogo The Witcher.",
     link: "https://portfolio-seven-lemon-a13ilaptj1.vercel.app/"
   },
   {
     title: "R2R Eventos",
     image: "/projects/images/370x500.svg",
+    imageMobile: "/projects/images/mobile/270x450.svg",
     description: "Landing page com o foco de divulgação de serviços do cliente, com formulário de contato e redirecionamento para WhatsApp.",
     link: "https://r2r-eventos.vercel.app/"
   },
   {
     title: "Ubank | Template",
     image: "/projects/images/370x500.svg",
+    imageMobile: "/projects/images/mobile/270x450.svg",
     description: "Template criado para representar empresas do mercado financeiro com uma presença digital profissional.",
     link: "https://r2r-eventos.vercel.app/"
   },
