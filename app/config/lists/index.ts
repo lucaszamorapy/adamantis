@@ -1,7 +1,7 @@
 import { ICardStrategy, INavlinks, IOurServices, IProjects, ServicePlan } from "../types";
 
 export const navLinks: INavlinks[] = [
-  { href: "/", label: "Início" },
+  { href: "#inicio", label: "Início" },
   { href: "#servicos", label: "Serviços" },
   { href: "#projetos", label: "Projetos" },
   { href: "#contato", label: "Contato" },

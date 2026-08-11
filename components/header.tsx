@@ -19,6 +19,23 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if (el) {
+        const headerOffset = 90;
+        const top =
+          el.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+      setMobileOpen(false);
+    }
+  };
+
   return (
     <header
       className={cn(
@@ -55,6 +72,7 @@ const Header = () => {
             <Link
               key={link.href}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="group relative py-1 text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >
               {link.label}
