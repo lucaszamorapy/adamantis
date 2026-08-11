@@ -3,6 +3,7 @@ import OurServices from "./services/our-services";
 import Projects from "./projects/projects";
 import Start from "./start/start";
 import UseIsMobile from "../hooks/use-is-mobile";
+import Cta from "./cta/cta";
 
 const HomePage = () => {
   const isMobile = UseIsMobile();
@@ -11,6 +12,7 @@ const HomePage = () => {
       <Start />
       <OurServices />
       <Projects isMobile={isMobile} />
+      <Cta />
     </main>
   );
 };
