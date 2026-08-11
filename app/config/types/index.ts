@@ -27,3 +27,10 @@ export interface IOurServices {
   type: string;
   services: IItemService[]
 }
+
+export interface IProjects {
+  image: string;
+  title: string;
+  description: string;
+  link: string;
+}

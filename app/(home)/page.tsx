@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import OurServices from "./services/our-services";
+import Projects from "./projects/projects";
 
 const HomePage = () => {
   return (
@@ -63,6 +64,7 @@ const HomePage = () => {
         </div>
       </section>
       <OurServices />
+      <Projects />
     </main>
   );
 };

@@ -2,15 +2,7 @@
 import { ourServices } from "@/app/config/lists";
 import { IItemService } from "@/app/config/types";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardAction,
-  CardTitle,
-  CardHeader,
-  CardDescription,
-  CardFooter,
-} from "@/components/ui/card";
+import { Card, CardContent, CardTitle, CardHeader } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
