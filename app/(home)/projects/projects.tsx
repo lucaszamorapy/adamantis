@@ -30,7 +30,7 @@ const Projects = () => {
                     className="object-cover"
                   />
                 </div>
-                <CardHeader className="h-60">
+                <CardHeader className="lg:h-60">
                   <CardTitle className="text-primary">{s.title}</CardTitle>
                   <CardDescription>{s.description}</CardDescription>
                 </CardHeader>
