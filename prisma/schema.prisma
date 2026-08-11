@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model contact {
+  contact_id Int               @id @default(autoincrement())
+  name       String            @db.VarChar(255)
+  email      String            @db.VarChar(255)
+  phone      String?           @db.VarChar(100)
+  service    contact_service
+  message    String?           @db.Text
+  date       DateTime          @db.Date
+}
+
+enum contact_service {
+  Landing_Pages        @map("Landing Pages")
+  Sites_Institucionais @map("Sites Institucionais")
+  Sistemas_Web         @map("Sistemas Web")
+  Identidade_Visual    @map("Identidade Visual")
+}
