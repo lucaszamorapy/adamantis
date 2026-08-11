@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "sticky inset-x-0 top-0 z-50 transition-all duration-500",
+        "sticky inset-x-0 top-0 z-50 transition-all duration-500 container",
         scrolled ? "py-2" : "py-4",
       )}
     >

@@ -17,9 +17,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={cn("h-full", "antialiased", "font-sans", outfit.variable)}
     >
-      <body className="min-h-full container dark flex flex-col">
+      <body className=" dark">
         <Header />
-        {children}
+        <main className="container">{children}</main>
       </body>
     </html>
   );

@@ -1,9 +1,9 @@
-import { ICardStrategy, INavlinks } from "../types";
+import { ICardStrategy, INavlinks, IOurServices, ServicePlan } from "../types";
 
 export const navLinks: INavlinks[] = [
   { href: "/", label: "Início" },
-  { href: "#sobre", label: "Sobre" },
   { href: "#servicos", label: "Serviços" },
+  { href: "#projetos", label: "Projetos" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -26,4 +26,153 @@ export const strategys: ICardStrategy[] = [
     title: "04. INOVAÇÃO",
     description: "Soluções criativas que transformam ideias em novas possibilidades."
   },
+]
+
+export const ourServices: IOurServices[] = [
+  {
+    type: "Landing Pages",
+    services: [
+      {
+        plan: ServicePlan.Start,
+        price: 800,
+        color: "#71717A",
+        recommend: false,
+        items: [
+          "Até 5 seções do site",
+          "Design personalizado",
+          "Responsivo",
+          "Formulário de Contato",
+          "Redirecionamento para WhatsApp",
+          "SEO Básico",
+        ],
+      },
+      {
+        plan: ServicePlan.Vibranium,
+        price: 1200,
+        color: "#3B82F6", // Azul / tecnologia
+        recommend: true,
+        items: [
+          "Tudo do Start",
+          "Até 8 seções do site",
+          "Google Analytics",
+          "Search Console",
+          "Animações",
+          "Performance otimizada",
+        ],
+      },
+      {
+        plan: ServicePlan.Adamantium,
+        price: 1800,
+        color: "#F59E0B", // Dourado / premium
+        recommend: false,
+        items: [
+          "Tudo do Vibranium",
+          "Seções ilimitadas do site",
+          "Copy estratégica",
+          "UX personalizada",
+          "Animações premium",
+        ],
+      },
+    ]
+  },
+  {
+    type: "Sites Institucionais",
+    services: [
+      {
+        plan: ServicePlan.Start,
+        color: "#71717A",
+        price: 1600,
+        recommend: false,
+        items: ["Até 5 páginas do site", "Responsivo", "Formulário de Contato", "Redirecionamento para WhatsApp", "SEO Básico"]
+      },
+      {
+        plan: ServicePlan.Vibranium,
+        color: "#3B82F6",
+        price: 1200,
+        recommend: true,
+        items: ["Tudo do Start", "Até 10 páginas do site", "Blog", "Analytics", "Maps"]
+      },
+      {
+        plan: ServicePlan.Adamantium,
+        color: "#F59E0B",
+        price: 1800,
+        recommend: false,
+        items: ["Tudo do Vibranium", "Páginas ilimitadas do site", "Integrações", "Performance premium", "Consultoria"]
+      }
+    ]
+  },
+  {
+    type: "Sistemas Web",
+    services: [
+      {
+        plan: ServicePlan.Start,
+        color: "#71717A",
+        price: 1600,
+        recommend: false,
+        items: [
+          "Sistema web básico",
+          "Até 5 páginas/telas",
+          "Design responsivo",
+          "Formulários personalizados",
+          "Autenticação de usuários",
+          "Banco de dados",
+          "SEO Básico",
+        ],
+      },
+      {
+        plan: ServicePlan.Vibranium,
+        color: "#3B82F6",
+        price: 2800,
+        recommend: true,
+        items: [
+          "Tudo do Start",
+          "Até 10 páginas/telas",
+          "Dashboard administrativo",
+          "Integrações com APIs",
+          "Analytics",
+          "Sistema de permissões",
+          "Performance otimizada",
+        ],
+      },
+      {
+        plan: ServicePlan.Adamantium,
+        color: "#F59E0B",
+        price: 4500,
+        recommend: false,
+        items: [
+          "Tudo do Vibranium",
+          "Páginas/telas ilimitadas",
+          "Integrações avançadas",
+          "Automações personalizadas",
+          "Arquitetura escalável",
+          "Performance premium",
+          "Consultoria técnica",
+        ],
+      },
+    ]
+  },
+  {
+    type: "Identidade Visual",
+    services: [
+      {
+        plan: ServicePlan.Start,
+        color: "#71717A",
+        price: 350,
+        recommend: false,
+        items: [
+          "Logo"
+        ],
+      },
+      {
+        plan: ServicePlan.Vibranium,
+        color: "#3B82F6",
+        price: 700,
+        recommend: true,
+        items: [
+          "Tudo do Start",
+          "Manual",
+        ],
+      },
+    ]
+  }
 ]
