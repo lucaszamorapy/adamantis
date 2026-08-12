@@ -207,7 +207,7 @@ export const projects: IProjects[] = [
     image: "/projects/images/370x500.svg",
     imageMobile: "/projects/images/mobile/270x450.svg",
     description: "Template criado para representar empresas do mercado financeiro com uma presença digital profissional.",
-    link: "https://r2r-eventos.vercel.app/"
+    link: "https://ubank-tawny.vercel.app/"
   },
 ]
 
