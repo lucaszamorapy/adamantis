@@ -1,3 +1,4 @@
+"use client";
 import { socialLinks } from "@/app/config/lists";
 import Link from "next/link";
 

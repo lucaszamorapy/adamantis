@@ -1,4 +1,4 @@
-import { MessageCircleMore } from "lucide-react";
+import { ClipboardList, LucideIcon, MessageCircleMore, MessageSquare, Rocket } from "lucide-react";
 import { ICardStrategy, INavlinks, IOurServices, IProjects, ServicePlan } from "../types";
 import { getWhatsAppLink } from "../global-functions";
 
@@ -9,7 +9,8 @@ export const navLinks: INavlinks[] = [
   { href: "#contato", label: "Contato" },
 ];
 
-export const services: string[] = ["Landing Pages", "Sites Institucionais", "Sistemas Web", "Design"]
+export const services: string[] = ["Landing Pages", "Sites Institucionais", "Sistemas Web", "Identidade Visual"]
+//export const servicesContactForm: { label: string, key: string } = [{ label: "Landing Pages", key: "Landing_Pages" }, { label: "Sites Institucionais", key: "Sites_Institucionais" }, "Sistemas Web", "Identidade Visual"]
 
 export const strategys: ICardStrategy[] = [
   {
@@ -215,5 +216,23 @@ export const socialLinks = [
     name: "WhatsApp",
     href: getWhatsAppLink(),
     icon: MessageCircleMore,
+  },
+];
+
+export const steps: { icon: LucideIcon; title: string; description: string }[] = [
+  {
+    icon: MessageSquare,
+    title: "01. ENTRE EM CONTATO",
+    description: "Preencha o formulário ou fale com a gente pelo WhatsApp.",
+  },
+  {
+    icon: ClipboardList,
+    title: "02. ALINHAMOS O PROJETO",
+    description: "Entendemos sua necessidade e definimos escopo e prazo.",
+  },
+  {
+    icon: Rocket,
+    title: "03. ENTREGAMOS",
+    description: "Desenvolvemos e entregamos com acompanhamento total.",
   },
 ];

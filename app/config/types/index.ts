@@ -35,3 +35,13 @@ export interface IProjects {
   description: string;
   link: string;
 }
+
+export interface IContact {
+  contact_id: number;
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string;
+}
+

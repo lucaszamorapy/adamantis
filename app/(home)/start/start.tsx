@@ -1,3 +1,4 @@
+"use client";
 import { services, strategys } from "@/app/config/lists";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -8,7 +9,6 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import React from "react";
 
 const Start = () => {
   return (

@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -18,10 +19,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={cn("h-full", "antialiased", "font-sans", outfit.variable)}
     >
-      <body className=" dark">
+      <body className="dark">
         <Header />
         <main className="container">{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

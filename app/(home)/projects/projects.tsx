@@ -1,3 +1,4 @@
+"use client";
 import { getWhatsAppLink } from "@/app/config/global-functions";
 import { projects } from "@/app/config/lists";
 import { Button } from "@/components/ui/button";
