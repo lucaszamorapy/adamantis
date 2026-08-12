@@ -1,7 +1,7 @@
 "use client";
 import { getWhatsAppLink } from "@/app/config/global-functions";
 import { ourServices } from "@/app/config/lists";
-import { IItemService } from "@/app/config/types";
+import { IOurServices } from "@/app/config/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle, CardHeader } from "@/components/ui/card";
 import {
@@ -14,19 +14,26 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const OurServices = () => {
-  const [services, setServices] = useState<IItemService[]>(
-    ourServices[0].services,
-  );
+  const [services, setServices] = useState<IOurServices[]>([]);
+
+  useEffect(() => {
+    const initService = () => {
+      const servicesFilter = ourServices.filter(
+        (service) => service.type === "Landing Pages",
+      );
+      setServices(servicesFilter);
+    };
+    initService();
+  }, []);
 
   const handleServiceFilter = (type: string) => {
-    const servicesFilter = ourServices
-      .filter((service) => service.type === type)
-      .flatMap((e) => {
-        return e.services;
-      });
+    const servicesFilter = ourServices.filter(
+      (service) => service.type === type,
+    );
+
     setServices(servicesFilter);
   };
 
@@ -65,103 +72,106 @@ const OurServices = () => {
         </SelectContent>
       </Select>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-        {services.map((s, index) => {
-          return (
-            <Card
-              key={index}
-              className={`
-          relative flex flex-col overflow-hidden
-          ${s.recommend ? "border-blue-500/50 shadow-lg shadow-blue-500/10" : ""}
-        `}
-            >
-              {s.recommend && (
-                <div className="absolute top-0 right-0">
-                  <div
-                    className="rounded-bl-xl px-4 py-1.5 text-xs font-semibold text-white"
-                    style={{ backgroundColor: s.color }}
-                  >
-                    Recomendado
+        {services.map((s, index) =>
+          s.services.map((i, itemIndex) => {
+            return (
+              <Card
+                key={`${index}-${itemIndex}`}
+                className={`
+            relative flex flex-col overflow-hidden
+            ${i.recommend ? "border-blue-500/50 shadow-lg shadow-blue-500/10" : ""}
+          `}
+              >
+                {i.recommend && (
+                  <div className="absolute top-0 right-0">
+                    <div
+                      className="rounded-bl-xl px-4 py-1.5 text-xs font-semibold text-white"
+                      style={{ backgroundColor: i.color }}
+                    >
+                      Recomendado
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              <CardHeader className="gap-4">
-                <div className="flex items-center gap-3">
-                  <div
-                    className="h-3 w-3 rounded-full shadow-sm"
-                    style={{
-                      backgroundColor: s.color,
-                      boxShadow: `0 0 12px ${s.color}80`,
-                    }}
-                  />
-                  <CardTitle
-                    className="text-xl font-semibold"
-                    style={{ color: s.color }}
-                  >
-                    {s.plan}
-                  </CardTitle>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-sm text-muted-foreground">
-                    A partir de
-                  </span>
-                  <span className="text-4xl font-bold tracking-tight">
-                    R$ {s.price.toLocaleString("pt-BR")}
-                  </span>
-                </div>
-              </CardHeader>
-              <CardContent className="flex flex-1 gap-5 flex-col">
-                <div className="h-px w-full bg-border" />
-                <ul className="flex flex-1 flex-col gap-4">
-                  {s.items.map((item, itemIndex) => {
-                    const isIncluded = item.startsWith("Tudo do");
-                    return (
-                      <li
-                        key={itemIndex}
-                        className="flex items-start gap-3 text-sm text-muted-foreground"
-                      >
-                        <span
-                          className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
-                          style={{
-                            backgroundColor: `${s.color}15`,
-                            color: s.color,
-                          }}
+                <CardHeader className="gap-4">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="h-3 w-3 rounded-full shadow-sm"
+                      style={{
+                        backgroundColor: i.color,
+                        boxShadow: `0 0 12px ${i.color}80`,
+                      }}
+                    />
+                    <CardTitle
+                      className="text-xl font-semibold"
+                      style={{ color: i.color }}
+                    >
+                      {i.plan}
+                    </CardTitle>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm text-muted-foreground">
+                      A partir de
+                    </span>
+                    <span className="text-4xl font-bold tracking-tight">
+                      R$ {i.price.toLocaleString("pt-BR")}
+                    </span>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex flex-1 gap-5 flex-col">
+                  <div className="h-px w-full bg-border" />
+                  <ul className="flex flex-1 flex-col gap-4">
+                    {i.items.map((item, itemIdx) => {
+                      const isIncluded = item.startsWith("Tudo do");
+                      return (
+                        <li
+                          key={itemIdx}
+                          className="flex items-start gap-3 text-sm text-muted-foreground"
                         >
-                          ✓
-                        </span>
+                          <span
+                            className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                            style={{
+                              backgroundColor: `${i.color}15`,
+                              color: i.color,
+                            }}
+                          >
+                            ✓
+                          </span>
+                          <span
+                            className={
+                              isIncluded ? "font-medium text-foreground" : ""
+                            }
+                          >
+                            {item}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
 
-                        <span
-                          className={
-                            isIncluded ? "font-medium text-foreground" : ""
-                          }
-                        >
-                          {item}
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
-
-                <Link
-                  href={getWhatsAppLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    variant={"outline"}
-                    style={{
-                      borderColor: `${s.color}60`,
-                      color: s.color,
-                      backgroundColor: `${s.color}08`,
-                    }}
+                  <Link
+                    href={getWhatsAppLink(
+                      `Olá, gostaria de contratar o serviço de ${s.type} do plano ${i.plan}.`,
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Escolher {s.plan}
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          );
-        })}
+                    <Button
+                      variant={"outline"}
+                      style={{
+                        borderColor: `${i.color}60`,
+                        color: i.color,
+                        backgroundColor: `${i.color}08`,
+                      }}
+                    >
+                      Escolher {i.plan}
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            );
+          }),
+        )}
       </div>
     </section>
   );
