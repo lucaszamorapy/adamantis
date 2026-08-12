@@ -84,14 +84,14 @@ export const ourServices: IOurServices[] = [
       {
         plan: ServicePlan.Start,
         color: "#71717A",
-        price: 1600,
+        price: 1200,
         recommend: false,
         items: ["Até 5 páginas do site", "Responsivo", "Formulário de Contato", "Redirecionamento para WhatsApp", "SEO Básico"]
       },
       {
         plan: ServicePlan.Vibranium,
         color: "#3B82F6",
-        price: 1200,
+        price: 1600,
         recommend: true,
         items: ["Tudo do Start", "Até 10 páginas do site", "Blog", "Analytics", "Maps"]
       },
