@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { navLinks } from "@/app/config/lists";
+import { getWhatsAppLink } from "@/app/config/global-functions";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -56,7 +57,7 @@ const Header = () => {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px rounded-t-2xl bg-linear-to-r from-transparent via-white/40 to-transparent" />
 
         <Link
-          href="/"
+          href="#inicio"
           className="text-base font-semibold tracking-tight text-foreground"
         >
           <Image
@@ -87,7 +88,13 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:block">
-          <Button>Fale conosco</Button>
+          <Link
+            href={getWhatsAppLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button>Fale conosco</Button>
+          </Link>
         </div>
 
         <Button

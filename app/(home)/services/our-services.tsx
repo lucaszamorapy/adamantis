@@ -1,4 +1,5 @@
 "use client";
+import { getWhatsAppLink } from "@/app/config/global-functions";
 import { ourServices } from "@/app/config/lists";
 import { IItemService } from "@/app/config/types";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Link from "next/link";
 import { useState } from "react";
 
 const OurServices = () => {
@@ -139,16 +141,23 @@ const OurServices = () => {
                     );
                   })}
                 </ul>
-                <Button
-                  variant={"outline"}
-                  style={{
-                    borderColor: `${s.color}60`,
-                    color: s.color,
-                    backgroundColor: `${s.color}08`,
-                  }}
+
+                <Link
+                  href={getWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Escolher {s.plan}
-                </Button>
+                  <Button
+                    variant={"outline"}
+                    style={{
+                      borderColor: `${s.color}60`,
+                      color: s.color,
+                      backgroundColor: `${s.color}08`,
+                    }}
+                  >
+                    Escolher {s.plan}
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           );

@@ -29,21 +29,33 @@ const Projects = ({ isMobile }: { isMobile: boolean }) => {
               >
                 {!isMobile ? (
                   <div className="relative h-125 w-92.5">
-                    <Image
-                      src={s.image}
-                      alt={s.title}
-                      fill
-                      className="object-cover"
-                    />
+                    <Link
+                      href={s.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Image
+                        src={s.image}
+                        alt={s.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </Link>
                   </div>
                 ) : (
                   <div className="relative h-112.5 w-67.5">
-                    <Image
-                      src={s.imageMobile}
-                      alt={s.title}
-                      fill
-                      className="object-cover"
-                    />
+                    <Link
+                      href={s.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Image
+                        src={s.imageMobile}
+                        alt={s.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </Link>
                   </div>
                 )}
 
